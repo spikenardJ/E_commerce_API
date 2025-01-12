@@ -1,13 +1,16 @@
 import { func } from "prop-types";
 import { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { Form, Button, Alert, Container, Modal, ListGroup, ListGroupItem } from "react-bootstrap";
 
 class CustomerList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             customers: [],
-            selectedCustomerId: null
+            selectedCustomerId: null,
+            error: null
         };
     }
 
@@ -23,6 +26,7 @@ class CustomerList extends Component {
         })
         .catch(error => {
             console.error("Error fetching data:", error);
+            this.setState({ error: "Error fetching customers. Please try again later." });
         });
     }
 
@@ -38,24 +42,37 @@ class CustomerList extends Component {
         })
         .catch(error => {
             console.error("Error deleting customer:", error);
+            this.setState({ error: "Error deleting customer. Please try again." });
         });
     }
 
     render() {
-        const { customers } = this.state;
+        const { customers, error } = this.state;
 
         return (
-            <div className="customer-list">
-                <h3>Customers</h3>
-                <ul>
+            <Container>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <h3 className="mt-3 mb-3 text-center">Customers</h3>
+                <ListGroup>
                     {customers.map(customer => (
-                        <li key={customer.id} onClick={() => this.selectCustomer(customer.id)}>
-                            {customer.name}
-                            <button className="delete-button" onClick={() => this.deleteCustomer(customer.id)}>Delete</button>
-                        </li>
+                        <ListGroupItem key={customer.id} className="d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-white rounded">
+                            <Link to={`/edit-customer/${customer.id}`} className="text-primary">{customer.name}</Link>
+                            <Button variant="danger" size="sm" onClick={() => this.deleteCustomer(customer.id)}>Delete</Button>
+                        </ListGroupItem>
                     ))}
-                </ul>
-            </div>
+                </ListGroup>
+            </Container>
+            // <div className="customer-list">
+            //     <h3>Customers</h3>
+            //     <ul>
+            //         {customers.map(customer => (
+            //             <li key={customer.id} onClick={() => this.selectCustomer(customer.id)}>
+            //                 {customer.name}
+            //                 <button className="delete-button" onClick={() => this.deleteCustomer(customer.id)}>Delete</button>
+            //             </li>
+            //         ))}
+            //     </ul>
+            // </div>
         );
     }
 }

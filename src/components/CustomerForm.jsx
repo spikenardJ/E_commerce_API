@@ -2,7 +2,7 @@
 import { Component } from "react";
 import axios from "axios";
 import { func, number } from "prop-types";
-import { Form, Button, Alert, Container } from "react-bootstrap";
+import { Form, Button, Alert, Container, Modal } from "react-bootstrap";
 
 class CustomerForm extends Component {
     constructor(props) {
@@ -13,7 +13,8 @@ class CustomerForm extends Component {
             phone: "",
             errors: {},
             selectedCustomerId: null,
-            isLoading: false
+            isLoading: false,
+            showSuccessModal: false
         };
     }
 
@@ -109,10 +110,9 @@ class CustomerForm extends Component {
                         phone: "",
                         errors: {},
                         selectedCustomerId: null,
-                        isLoading: false
+                        isLoading: false,
+                        showSuccessModal: true
                     });
-                    this.props.navigate("/customers")
-                    this.setState({ isLoading: false})
                 })
                 .catch(error => {
                     this.setState({ error: error.toString(), isLoading: false });
@@ -122,8 +122,20 @@ class CustomerForm extends Component {
         }
     };
 
+    closeModal = () => {
+        this.setState({
+            showSuccessModal: false,
+            name: "",
+            email: "",
+            phone: "",
+            errors: {},
+            selectedCustomerId: null
+        });
+        this.props.navigate("/customers")
+    }
+
     render() {
-        const { name, email, phone, errors, error, isLoading } = this.state;
+        const { name, email, phone, errors, error, isLoading, showSuccessModal } = this.state;
 
         return (
             <Container>
@@ -149,6 +161,18 @@ class CustomerForm extends Component {
 
                     <Button variant="primary" type="submit" >Submit</Button>
                 </Form>
+
+                <Modal show={showSuccessModal} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Success!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        The customer has been successfully {this.state.selectedCustomerId ? "updated" : "added"}.
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.closeModal} >Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </Container>
             // <form onSubmit={this.handleSubmit}>
             //     <h3>Add/Edit Customer</h3>
