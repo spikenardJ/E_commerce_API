@@ -5,7 +5,7 @@ body {
 
 h1 {
     text-align: center;
-    color: darkslateblue;
+    color: darkslategray;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -81,9 +81,9 @@ nav a:hover {
 }
 
 nav a.active {
-    background-color: darkmagenta;
+    background-color: #91a3b0;
     color: white;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .nav-bar::after {

@@ -1,4 +1,3 @@
-// Controlled Components
 import { Component } from "react";
 import axios from "axios";
 import { func, number } from "prop-types";
@@ -80,7 +79,7 @@ class CustomerForm extends Component {
 
         if (!name) errors.name = "Name is required";
         if (!email) errors.email = "Email is required";
-        if (!phone) errors.phone = "Phone is required";
+        if (!phone) errors.phone = "Phone number is required";
         return errors;
     };
 
@@ -150,7 +149,7 @@ class CustomerForm extends Component {
                     </Form.Group>
                     <Form.Group controlId="formGroupEmail" >
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="text" name="email" value={email} onChange={this.handleChange} />
+                        <Form.Control type="email" name="email" value={email} onChange={this.handleChange} />
                         {errors.email && <div style={{color: "red"}}>{errors.email}</div>}
                     </Form.Group>
                     <Form.Group controlId="formGroupPhone" >
@@ -159,7 +158,9 @@ class CustomerForm extends Component {
                         {errors.phone && <div style={{color: "red"}}>{errors.phone}</div>}
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" >Submit</Button>
+                    <div className="text-center mt-5">
+                    <Button variant="secondary" type="submit" >Submit</Button>
+                    </div>
                 </Form>
 
                 <Modal show={showSuccessModal} onHide={this.closeModal}>
@@ -174,42 +175,6 @@ class CustomerForm extends Component {
                     </Modal.Footer>
                 </Modal>
             </Container>
-            // <form onSubmit={this.handleSubmit}>
-            //     <h3>Add/Edit Customer</h3>
-            //     <label>
-            //         Name:
-            //         <input
-            //             type="text"
-            //             name="name"
-            //             value={name}
-            //             onChange={this.handleChange}
-            //         />
-            //         {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
-            //     </label>
-            //     <br />
-            //     <label>
-            //         Email:
-            //         <input
-            //             type="email"
-            //             name="email"
-            //             value={email}
-            //             onChange={this.handleChange}
-            //         />
-            //         {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
-            //     </label>
-            //     <br />
-            //     <label>
-            //         Phone:
-            //         <input
-            //             type="tel"
-            //             name="phone"
-            //             value={phone}
-            //             onChange={this.handleChange}
-            //         />
-            //     </label>
-            //     <br />
-            //     <button type="submit">Submit</button>
-            // </form>
         );
     }
 }

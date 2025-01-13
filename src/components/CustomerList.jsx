@@ -53,26 +53,16 @@ class CustomerList extends Component {
             <Container>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <h3 className="mt-3 mb-3 text-center">Customers</h3>
+                <h6 className="mt-3 mb-3 text-center text-secondary"><small>Click Name to Edit</small></h6>
                 <ListGroup>
                     {customers.map(customer => (
                         <ListGroupItem key={customer.id} className="d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-white rounded">
-                            <Link to={`/edit-customer/${customer.id}`} className="text-primary">{customer.name}</Link>
+                            <Link style={{textDecoration: 'none'}} to={`/edit-customer/${customer.id}`} className="text-secondary">{customer.name}</Link>
                             <Button variant="danger" size="sm" onClick={() => this.deleteCustomer(customer.id)}>Delete</Button>
                         </ListGroupItem>
                     ))}
                 </ListGroup>
             </Container>
-            // <div className="customer-list">
-            //     <h3>Customers</h3>
-            //     <ul>
-            //         {customers.map(customer => (
-            //             <li key={customer.id} onClick={() => this.selectCustomer(customer.id)}>
-            //                 {customer.name}
-            //                 <button className="delete-button" onClick={() => this.deleteCustomer(customer.id)}>Delete</button>
-            //             </li>
-            //         ))}
-            //     </ul>
-            // </div>
         );
     }
 }

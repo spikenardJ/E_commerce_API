@@ -1,11 +1,71 @@
+import React from "react";
+import { Button, Card, CardGroup, Image } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import shopImage from "../images/shop.png";
+import itImage from "../images/it.jpg";
+import kitchenImage from "../images/kitchen.jpg";
+import toyImage from "../images/toy.jpg"
+import "../Style.css"
 
-function HomePage() {
+const HomePage = () => {
     return (
-        <div>
-            <h1>Welcome to our E-commerce App</h1>
-            <p>This is the place to find all your needs at one click.</p>
+      <div style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+        <h1 className="mb-5 mt-5">Welcome to the E-commerce App!</h1>
+        <h3>For all your shopping needs!</h3>
+        
+        <Image 
+          src={shopImage} 
+          alt="Welcome" 
+          fluid 
+          className="mb-4 rounded"
+          border="2px solid #ddd"
+        />
+  
+        <div className="mt-4">
+          <CardGroup>
+            <Card className="card" style={{ width: "18rem", margin: "10px", borderRadius: "10px"}}>
+                <Card.Img variant="top" src={itImage} />
+                <Card.Body>
+                <Card.Title>IT Products</Card.Title>
+                <Card.Text>
+                    Check out our IT products!
+                </Card.Text>
+                <div className="text-center">
+                    <Button href="/product-landing" variant="dark">IT Products</Button>
+                </div>
+                </Card.Body>
+            </Card>
+            <Card className="card" style={{ width: "18rem", margin: "10px", borderRadius: "10px" }}>
+                <Card.Img variant="top" src={kitchenImage} />
+                <Card.Body>
+                <Card.Title>Kitchen Products</Card.Title>
+                <Card.Text>
+                    Check out our kitchen products!
+                </Card.Text>
+                <div className="text-center">
+                    <Button href="/product-landing" variant="dark">Kitchen Products</Button>
+                </div>
+                </Card.Body>
+            </Card>
+            <Card className="card" style={{ width: "18rem", margin: "10px", borderRadius: "10px" }}>
+                <Card.Img variant="top" src={toyImage} />
+                <Card.Body>
+                <Card.Title>Tech Toys</Card.Title>
+                <Card.Text>
+                    Check out our tech toys!
+                </Card.Text>
+                <div className="text-center">
+                    <Button href="/product-landing"  variant="dark">Tech Toys</Button>
+                </div>
+                </Card.Body>
+            </Card>
+          </CardGroup>
         </div>
-    )
-}
-
-export default HomePage;
+        <div className="d-grid gap-2">
+            <Button href="/product-landing" variant="secondary" size="lg" className="btn shadow-lg mb-4 mt-5">Shop Now</Button>
+        </div>
+      </div>
+    );
+  };
+  
+  export default HomePage;

@@ -1,4 +1,3 @@
-// Uncontrolled Component
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -115,9 +114,11 @@ const ProductForm = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? <Spinner as="span" animation="border" size="sm" /> : "Submit"}
-                </Button>
+                <div className="text-center">
+                    <Button className="mt-5" variant="secondary" type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? <Spinner as="span" animation="border" size="lg" /> : "Submit"}
+                    </Button>
+                </div>
             </Form>
 
             <Modal show={showSuccessModal} onHide={handleClose}>
@@ -132,29 +133,6 @@ const ProductForm = () => {
                 </Modal.Footer>
             </Modal>
         </>
-        // <form onSubmit={handleSubmit}>
-        //     <h3>{id ? "Edit" : "Add"}Product</h3>
-        //     <label>
-        //         Name:
-        //         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        //         {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Price:
-        //         <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
-        //         {errors.price && <div style={{ color: "red" }}>{errors.price}</div>}
-        //     </label>
-        //     <br />
-        //     <label>
-        //         Stock Quantity:
-        //         <input type="number" value={stock_quantity} onChange={(e) => setPrice(e.target.value)} />
-        //         {errors.stock_quantity && <div style={{ color: "red" }}>{errors.stock_quantity}</div>}
-        //     </label>
-        //     <br />
-        //     <br />
-        //     <button type="submit">Submit</button>
-        // </form>
     );
 };
 

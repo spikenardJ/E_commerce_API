@@ -38,9 +38,9 @@ const ProductList = () => {
                 <ListGroup>
                     {products.map(product => (
                         <ListGroup.Item key={product.id} className="d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-white rounded">
-                            {product.name} (ID: {product.id})
+                            {product.name}  (ID: {product.id})  (Quantity: {product.stock_quantity})
                             <div>
-                                <Button variant="primary" onClick={() => navigate(`/edit-product/${product.id}`)} className="me-2">Edit</Button>
+                                <Button variant="secondary" onClick={() => navigate(`/edit-product/${product.id}`)} className="me-2">Edit</Button>
                                 <Button variant="danger" onClick={() => deletedProduct(product.id)}>Delete</Button>
                             </div>
                         </ListGroup.Item>
@@ -49,20 +49,6 @@ const ProductList = () => {
                 </Col>
             </Row>
         </Container>
-
-        // <div className="product-list">
-        //     <h3>Products</h3>
-        //     <ul>
-        //         {products.map(product => (
-        //             <li key={product.id}>
-        //                 {product.name} (ID: {product.id})
-        //                 <br />
-        //                 <button onClick={() => navigate(`/edit-product/${product.id}`)}>Edit</button>
-        //                 <button onClick={() => deletedProduct(product.id)}>Delete</button>
-        //             </li>
-        //         ))}
-        //     </ul>
-        // </div>
     );
 };
 
