@@ -11,6 +11,8 @@ import ProductForm from "./components/ProductForm";
 import ProductLanding from "./components/ProductLanding";
 // import axios from "axios";
 import NavigationBar from "./components/NavigationBar";
+import OrderList from "./components/OrderList";
+import OrderForm from "./components/OrderForm";
 import NotFound from "./components/NotFound";
 import "./Style.css";
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -22,8 +24,6 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/add-customer" element={<CustomerForm />} />
-        <Route path="/edit-customer/:id" element={<CustomerForm />} /> */}
         <Route path="/product-landing" element={<ProductLanding />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/add-product" element={<ProductForm />} />
@@ -31,6 +31,9 @@ function App() {
         <Route path="/add-customer/" element={<CustomerFormWrapper />} />
         <Route path="/edit-customer/:id" element={<CustomerFormWrapper />} />
         <Route path="/customers" element={<CustomerList />} />
+        <Route path="/add-order" element={<OrderForm />} />
+        <Route path="/edit-order/:id" element={<OrderForm />} />
+        <Route path="/orders" element={<OrderList />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -1,37 +1,40 @@
-import { func, number } from "prop-types";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const OrderList = ({ customerId, onOrderSelect }) => {
-    const [orders, setOrders] = useState([]);
+const OrderList = () => {
+  const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        if (customerId) {
-            const fetchedOrders = [
-                { id: 101, date: "2021-01-01" },
-                { id: 102, date: "2021-01-15" },
-                { id: 103, date: "2021-01-30" }
-            ];
-            setOrders(fetchedOrders);
-        }
-    }, [customerId]);
+  useEffect(() => {
+    axios.get('http://localhost:5000/orders')
+      .then(response => {
+        console.log('Fetched orders:', response.data);
+        setOrders(response.data);
+      })
+      .catch(error => console.error('Error fetching orders:', error));
+  }, []);
 
-    return (
-        <div className="order-list">
-            <h3>Orders</h3>
+  return (
+    <div>
+      <h2>Order List</h2>
+      <ul>
+        {orders.map(order => (
+          <li key={order.id}>
+            <p>Order ID: {order.id}</p>
+            <p>Customer ID: {order.customer_id}</p>
+            <p>Order Date: {order.order_date}</p>
+            <p>Products:</p>
             <ul>
-                {orders.map((order) => (
-                    <li key={order.id} onClick={() => onOrderSelect(order.id)}>
-                        Order ID: {order.id}, Date: {order.date}
-                    </li>
-                ))}
+              {order.products.map(product => (
+                <li key={product.product_id}>
+                  Product ID: {product.product_id}, Quantity: {product.quantity}
+                </li>
+              ))}
             </ul>
-        </div>
-    );
-};
-
-OrderList.propTypes = {
-    customerId: number,
-    onOrderSelect: func
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default OrderList;

@@ -21,7 +21,7 @@ function ProductLanding() {
 
         <div>
         
-        <Container className="mt-5" style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+        <Container id="itProducts" className="mt-5" style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
             <Row>
                 <h3 className="it-products">IT Products</h3>
                 <Col xs={8} md={4}>
@@ -67,7 +67,7 @@ function ProductLanding() {
         </Container>
         
         <br /><br /><br />
-        <Container style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+        <Container id="kitchenProducts" style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
             <Row>
             <h3 className="kitchen-products">Kitchen Products</h3>
                 <Col xs={8} md={4}>
@@ -112,9 +112,9 @@ function ProductLanding() {
             </Row>
         </Container>
         <br /><br /><br />
-        <Container style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+        <Container id="techToys" style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
             <Row>
-            <h3 className="techy-toys">Tech Toys</h3>
+            <h3 id="techToys" className="tech-toys">Tech Toys</h3>
                 <Col xs={8} md={4}>
                 <Image 
                         src={hoverImage} 
