@@ -32,7 +32,7 @@ function ProductLanding() {
                         width="100%"
                         border="2px solid #ddd"
                     />
-                    <p><small>Macbook Laptop: $1500.00</small></p>
+                    <p><small>MacBook Laptop: $2300.00</small></p>
                     <div className="text-center">
                         <Button href="/products" variant="dark">Shop Laptops</Button>
                     </div>

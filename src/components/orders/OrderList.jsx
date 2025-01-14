@@ -15,27 +15,25 @@ const OrderList = () => {
 
   return (
     <div>
-      <h2>Order List</h2>
-      <ul>
-        {orders.map(order => (
-          <li key={order.id}>
-            {/* Add order id to orderSchema in backend */}
-            <p>Order ID: {order.id}</p>
-            <p>Customer ID: {order.customer_id}</p>
-            <p>Order Date: {order.date}</p>
-            {/* Add expected delivery date */}
-            <p>Products:</p>
-            <ul>
-              {order.products.map(product => (
-                <li key={product.product_id}>
-                  Product ID: {product.product_id}, Quantity: {product.quantity}
-                </li>
-              ))}
-            </ul>
-          </li>
+    {orders.map(order => (
+      <div key={order.id}>
+        <h3>Order ID: {order.id}</h3>
+        <p>Customer ID: {order.customer_id}</p>
+        <p>Order Date: {order.date}</p>
+        <p>Expected Delivery Date: {order.expected_delivery_date}</p>
+        <h4>Products:</h4>
+        {order.order_products.map((item, index) => (
+          <div key={index} style={{ marginBottom: "1rem", border: "1px solid #ddd", padding: "1rem" }}>
+            <p><strong>Product Name:</strong> {item.product.name}</p>
+            <p><strong>Product ID:</strong> {item.product.id}</p>
+            <p><strong>Price:</strong> ${item.product.price.toFixed(2)}</p>
+            <p><strong>Quantity:</strong> {item.quantity}</p>
+            <p><strong>Total:</strong> ${(item.product.price * item.quantity).toFixed(2)}</p>
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    ))}
+  </div>
   );
 };
 

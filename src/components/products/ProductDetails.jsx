@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react";
+import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
 
@@ -44,12 +45,13 @@ const ProductsDetails = () => {
             {/* <h2>{products.product_name}</h2>
             <p>${products.price}</p>
             <p> Availiable in Stock: {products.stock}</p> */}
-            <Link to="/products" >Back to All Products</Link>
             <div>
                 <h3 className="mt-3 mb-3">Product Details</h3>
-                {/* <p>ID: {products.id}</p>
-                <p>Name: {products.name}</p> */}
+                <h5>{products.name}</h5>
+                <p>ID: {products.id}</p>
                 <p>Price: ${products.price}</p>
+                <p>Quantity: {products.stock_quantity}</p>
+                <br /><br />
 
                 {/* <p>In Stock: {products.product.stock}</p> */}
                 <div className="text-center">
@@ -63,7 +65,9 @@ const ProductsDetails = () => {
             </>
         ) : (
             <> <p> No User Found</p>
-            <Link to="/products" >Back to All Products</Link>
+                    <Link to="/products">
+                        <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
+                    </Link>
             </>
             
         )}
