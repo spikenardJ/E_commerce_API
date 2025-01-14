@@ -13,12 +13,11 @@ const HomePage = () => {
       <div style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
         <h1 className="mb-5 mt-5">Welcome to the E-commerce App!</h1>
         <h3>For all your shopping needs!</h3>
-        
         <Image 
           src={shopImage} 
           alt="Welcome" 
           fluid 
-          className="mb-4 rounded"
+          className="mb-4 rounded d-block mx-auto img-fluid w-90"
           border="2px solid #ddd"
         />
   

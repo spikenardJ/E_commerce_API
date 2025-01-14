@@ -7,7 +7,7 @@ const OrderList = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/orders')
       .then(response => {
-        console.log('Fetched orders:', response.data);
+        console.log('Fetched orders:', response.data); // Log the fetched orders
         setOrders(response.data);
       })
       .catch(error => console.error('Error fetching orders:', error));
@@ -19,9 +19,11 @@ const OrderList = () => {
       <ul>
         {orders.map(order => (
           <li key={order.id}>
+            {/* Add order id to orderSchema in backend */}
             <p>Order ID: {order.id}</p>
             <p>Customer ID: {order.customer_id}</p>
-            <p>Order Date: {order.order_date}</p>
+            <p>Order Date: {order.date}</p>
+            {/* Add expected delivery date */}
             <p>Products:</p>
             <ul>
               {order.products.map(product => (

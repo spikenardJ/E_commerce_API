@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Row, Col, Container, Image, Button } from "react-bootstrap";
-import laptopImage from "../images/laptop.png";
-import iphoneImage from "../images/iphone.png";
-import ipadImage from "../images/ipad.png";
-import potsImage from "../images/pots.png";
-import utensilsImage from "../images/utensils.png";
-import bowlsImage from "../images/bowls.png";
-import hoverImage from "../images/hover.png";
-import robotsImage from "../images/robots.png";
-import droneImage from "../images/drone.png";
+import laptopImage from "../../images/laptop.png";
+import iphoneImage from "../../images/iphone.png";
+import ipadImage from "../../images/ipad.png";
+import potsImage from "../../images/pots.png";
+import utensilsImage from "../../images/utensils.png";
+import bowlsImage from "../../images/bowls.png";
+import hoverImage from "../../images/hover.png";
+import robotsImage from "../../images/robots.png";
+import droneImage from "../../images/drone.png";
 
 function ProductLanding() {
     const [index, setIndex] = useState(0);

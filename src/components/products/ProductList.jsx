@@ -38,7 +38,7 @@ const ProductList = () => {
                 <ListGroup>
                     {products.map(product => (
                         <ListGroup.Item key={product.id} className="d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-white rounded">
-                            {product.name}  (ID: {product.id})  (Quantity: {product.stock_quantity})
+                            {product.name}  (ID: {product.id}) (Quantity: {product.stock_quantity})
                             <div>
                                 <Button variant="secondary" onClick={() => navigate(`/edit-product/${product.id}`)} className="me-2">Edit</Button>
                                 <Button variant="danger" onClick={() => deletedProduct(product.id)}>Delete</Button>
