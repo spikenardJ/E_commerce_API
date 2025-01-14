@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
@@ -41,15 +41,29 @@ const ProductsDetails = () => {
     
         {products ?(
             <>
-            <h2>{products.product_name}</h2>
+            {/* <h2>{products.product_name}</h2>
             <p>${products.price}</p>
-            <p> Availiable in Stock: {products.stock}</p>
-            <Link to="/products" >Back to user page</Link>
+            <p> Availiable in Stock: {products.stock}</p> */}
+            <Link to="/products" >Back to All Products</Link>
+            <div>
+                <h3 className="mt-3 mb-3">Product Details</h3>
+                {/* <p>ID: {products.id}</p>
+                <p>Name: {products.name}</p> */}
+                <p>Price: ${products.price}</p>
+
+                {/* <p>In Stock: {products.product.stock}</p> */}
+                <div className="text-center">
+                    <Link to="/products">
+                        <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
+                    </Link>
+                    {/* <Button variant="danger" size="sm" onClick={handleDelete}>Delete {customer.name}</Button> */}
+                </div>
+    </div>
 
             </>
         ) : (
             <> <p> No User Found</p>
-            <Link to="/products" >Back to user page</Link>
+            <Link to="/products" >Back to All Products</Link>
             </>
             
         )}

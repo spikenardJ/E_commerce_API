@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import axios from "axios";
 
 const CustomerDetails = () => {
@@ -44,8 +45,13 @@ const CustomerDetails = () => {
       <p>ID: {customer.id}</p>
       <p>Name: {customer.name}</p>
       <p>Email: {customer.email}</p>
-      <button onClick={handleDelete}>Delete Customer</button>
-      <Link to="/customers">Back to Customers</Link>
+      <p>Phone: {customer.phone}</p>
+        <div className="text-center">
+          <Link to="/customers">
+            <Button className="m-2" variant="secondary" size="sm">Back to Customers</Button>
+          </Link>
+          <Button variant="danger" size="sm" onClick={handleDelete}>Delete {customer.name}</Button>
+        </div>
     </div>
   );
 };
