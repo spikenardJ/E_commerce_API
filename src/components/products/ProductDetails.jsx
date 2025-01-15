@@ -1,14 +1,13 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import { NavLink, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
 
 const ProductsDetails = () => {
 
     
     const {id} = useParams()
-    const [products, setProduct] = useState(null);
+    const [products, setProduct] = useState(null)
 
 
     const getProductInfo = (id) => {
@@ -21,6 +20,7 @@ const ProductsDetails = () => {
           console.log(error)
         })
       }
+
 
       useEffect(()=>{
         const fetchProduct = async () => {
@@ -37,7 +37,9 @@ const ProductsDetails = () => {
         fetchProduct();
 
       },[])
+
   return (
+    
     <div>
     
         {products ?(
@@ -51,6 +53,7 @@ const ProductsDetails = () => {
                 <p>ID: {products.id}</p>
                 <p>Price: ${products.price}</p>
                 <p>Quantity: {products.stock_quantity}</p>
+
                 <br /><br />
 
                 {/* <p>In Stock: {products.product.stock}</p> */}
@@ -59,6 +62,17 @@ const ProductsDetails = () => {
                         <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
                     </Link>
                     {/* <Button variant="danger" size="sm" onClick={handleDelete}>Delete {customer.name}</Button> */}
+                </div>
+
+                <div>
+                    {products.stock_quantity <= 5 && (
+                        <div className="text-center">
+                            <p>Only a few items left in stock!</p>
+                            <Link to="/add-product">
+                                <Button className="m-2" variant="danger" size="lg">Order More {products.name} Now!</Button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
     </div>
 
