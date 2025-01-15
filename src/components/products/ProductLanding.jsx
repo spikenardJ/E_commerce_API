@@ -32,9 +32,9 @@ function ProductLanding() {
                         width="100%"
                         border="2px solid #ddd"
                     />
-                    <p><small>MacBook Laptop: $2300.00</small></p>
+                    <p><small>Macbook Laptop: $1500.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Laptops</Button>
+                        <Button href="/edit-order/1" variant="dark">Shop Laptops</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -47,7 +47,7 @@ function ProductLanding() {
                     />
                     <p><small>iPhone: $800.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop iPhones</Button>
+                        <Button href="/edit-order/2" variant="dark">Shop iPhones</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -60,7 +60,7 @@ function ProductLanding() {
                     />
                     <p><small>iPad: $400.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop iPads</Button>
+                        <Button href="/edit-order/3" variant="dark">Shop iPads</Button>
                     </div>
                 </Col>
             </Row>
@@ -80,7 +80,7 @@ function ProductLanding() {
                     />
                     <p><small>Copper Pot Set: $1200.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Copper Pot Sets</Button>
+                        <Button href="/edit-order/4" variant="dark">Shop Copper Pot Sets</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -93,7 +93,7 @@ function ProductLanding() {
                     />
                     <p><small>Teak Utensil Set: $40.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Utensil Sets</Button>
+                        <Button href="/edit-order/5" variant="dark">Shop Utensil Sets</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -106,7 +106,7 @@ function ProductLanding() {
                     />
                     <p><small>Bowl Set (4): $30.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Bowl Sets</Button>
+                        <Button href="/edit-order/6" variant="dark">Shop Bowl Sets</Button>
                     </div>
                 </Col>
             </Row>
@@ -125,7 +125,7 @@ function ProductLanding() {
                     />
                     <p><small>Hover Board: $200.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Hover Boards</Button>
+                        <Button href="/edit-order/7" variant="dark">Shop Hover Boards</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -138,7 +138,7 @@ function ProductLanding() {
                     />
                     <p><small>Robot: $1200.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Robots</Button>
+                        <Button href="/edit-order/8" variant="dark">Shop Robots</Button>
                     </div>
                 </Col>
                 <Col xs={8} md={4}>
@@ -151,14 +151,14 @@ function ProductLanding() {
                     />
                     <p><small>Drone: $400.00</small></p>
                     <div className="text-center">
-                        <Button href="/products" variant="dark">Shop Drones</Button>
+                        <Button href="/edit-order/9" variant="dark">Shop Drones</Button>
                     </div>
                 </Col>
             </Row>
         </Container>
         <br />
             <div className="d-grid gap-2">
-                <Button href="#" variant="secondary" size="lg" className="btn shadow-lg mb-4 mt-5">Shop Now</Button>
+                <Button href="/add-order" variant="secondary" size="lg" className="btn shadow-lg mb-4 mt-5">Shop Now</Button>
             </div>
         </div>
     );
