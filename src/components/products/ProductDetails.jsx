@@ -64,10 +64,11 @@ const ProductsDetails = () => {
 
             </>
         ) : (
-            <> <p> No User Found</p>
-                    <Link to="/products">
-                        <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
-                    </Link>
+            <> 
+            <p>User Not Found</p>
+                <Link to="/products">
+                    <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
+                </Link>
             </>
             
         )}

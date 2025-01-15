@@ -13,6 +13,7 @@ const PlaceOrder = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     axios.get("http://localhost:5000/customers")
       .then(response => setCustomers(response.data))
       .catch(error => console.error("Error fetching customers:", error));
@@ -23,18 +24,36 @@ const PlaceOrder = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
+  // const handleProductChange = (productId, quantity) => {
+  //   setSelectedProducts(prevProducts => {
+  //     const existingProduct = prevProducts.find(p => p.product_id === productId);
+  //     if (existingProduct) {
+  //       return prevProducts.map(p =>
+  //         p.product_id === productId ? { ...p, quantity } : p
+  //       );
+  //     } else {
+  //       return [...prevProducts, { product_id: productId, quantity }];
+  //     }
+  //   });
+  // };
+
   const handleProductChange = (productId, quantity) => {
-    setSelectedProducts(prevProducts => {
-      const existingProduct = prevProducts.find(p => p.product_id === productId);
-      if (existingProduct) {
-        return prevProducts.map(p =>
-          p.product_id === productId ? { ...p, quantity } : p
-        );
+    setSelectedProducts((prevProducts) => {
+      if (quantity > 0) {
+        const existingProduct = prevProducts.find((p) => p.product_id === productId);
+        if (existingProduct) {
+          return prevProducts.map((p) =>
+            p.product_id === productId ? { ...p, quantity } : p
+          );
+        } else {
+          return [...prevProducts, { product_id: productId, quantity }];
+        }
       } else {
-        return [...prevProducts, { product_id: productId, quantity }];
+        return prevProducts.filter((p) => p.product_id !== productId);
       }
     });
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,8 +63,6 @@ const PlaceOrder = () => {
       expected_delivery_date: expectedDeliveryDate, 
       products: selectedProducts.filter(p => p.quantity > 0)
     };
-
-    console.log("Order Data:", JSON.stringify(orderData, null, 2));
 
     axios.post("http://localhost:5000/orders", orderData)
       .then(() => {

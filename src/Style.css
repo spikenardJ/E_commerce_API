@@ -9,6 +9,18 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#orders {
+    box-shadow: 0 0 10px black;
+    width: 40%;
+    border: 1px solid lightgray;
+}
+
+section.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+}
+
 p, h2, h3, h4, h5 {
     text-align: center;
     color: darkslategray;
