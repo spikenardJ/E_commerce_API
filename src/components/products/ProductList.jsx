@@ -1,4 +1,5 @@
 // Products List component to List all Products, Product ID, button linking to edit product, and an option to delete product
+// Displays stock quantity to View and Manage Product Stock Levels (Bonus)
 
 import { array, func } from "prop-types";
 import axios from "axios";

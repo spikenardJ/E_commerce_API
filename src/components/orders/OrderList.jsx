@@ -51,6 +51,7 @@ const OrderList = () => {
             </div>
           ))}
           <div>
+            {/* Calculate Order Total Price (Bonus) */}
             <h5 className="mb-5"><strong>Order Total:</strong> ${calculateOrderTotal(order.order_products).toFixed(2)}</h5>
           </div>
         </div>

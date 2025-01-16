@@ -63,6 +63,7 @@ const ProductsDetails = () => {
                 </div>
 
                 <div>
+                    {/* View and Manage Product Stock Levels (Bonus), Restock Products When Low (Bonus) */}
                     {products.stock_quantity <= 5 && (
                         <div className="text-center">
                             <p>Only a few items left in stock!</p>
