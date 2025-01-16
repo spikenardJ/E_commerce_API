@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button, Card, CardGroup, Image } from "react-bootstrap";
-import { HashLink, NavHashLink } from "react-router-hash-link";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import shopImage from "../images/shop.png";
 import itImage from "../images/it.jpg";
@@ -33,7 +32,7 @@ const HomePage = () => {
                     Check out our IT products!
                 </Card.Text>
                 <div className="text-center">
-                <Button href="/product-landing" variant="dark"><NavHashLink to="./product-landing/#itProducts" activeClassName="selected" style={{ color: "white", textDecoration: "none" }}>IT Products</NavHashLink></Button>
+                <Button href="./product-landing/#itProducts" variant="dark">IT Products</Button>
                 </div>
                 </Card.Body>
             </Card>
@@ -45,7 +44,7 @@ const HomePage = () => {
                     Check out our kitchen products!
                 </Card.Text>
                 <div id="kitchen-link" className="text-center">
-                    <Button href="/product-landing" variant="dark"><NavHashLink to="./product-landing/#kitchenProducts" activeClassName="selected" style={{ color: "white", textDecoration: "none" }}>Kitchen Products</NavHashLink></Button>
+                    <Button href="./product-landing/#kitchenProducts" variant="dark">Kitchen Products</Button>
                 </div>
                 </Card.Body>
             </Card>
@@ -57,7 +56,7 @@ const HomePage = () => {
                     Check out our tech toys!
                 </Card.Text>
                 <div className="text-center">
-                <Button href="/product-landing" variant="dark"><NavHashLink to="./product-landing/#techToys" activeClassName="selected" style={{ color: "white", textDecoration: "none" }}>Tech Toys</NavHashLink></Button>
+                <Button href="./product-landing/#techToys" variant="dark">Tech Toys</Button>
                 </div>
                 </Card.Body>
             </Card>
