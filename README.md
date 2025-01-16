@@ -1,6 +1,8 @@
 # E-commerce API Application 
 
 💲💰 💲Welcome to the E-commerce API Application! 💲💰 💲
+
+
 This is a full-stack E-Commerce web application built with React for the frontend and Flask for the backend. It allows users to manage customers, products, and orders efficiently. The application features a modern design, responsive interface, and easy navigation, while demonstrating best practices in web development, including component-based architecture, routing, form handling, data fetching, and error handling. This application is full of various ui extras including a “confetti pop” when an order is placed successfully. The entire app is easy to navigate and is visually appealing.
 
 Featuring:
