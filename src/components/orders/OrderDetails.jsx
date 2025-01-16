@@ -1,3 +1,5 @@
+// Individual order details display when customer makes a purchase including order details, subtotals, and order total
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -31,29 +33,55 @@ const OrderDetails = () => {
     return <div>{error}</div>;
   }
 
+  function calculateOrderSubtotal(products) {
+    const subtotal = products.reduce((accumulator, item) => {
+      return (item.product.price * item.quantity)
+    },0)
+    console.log(products)
+    return subtotal
+  }
+
+  function calculateOrderTotal(products) {
+    const total = products.reduce((accumulator, item) => {
+      return accumulator + (item.product.price * item.quantity)
+    },0)
+    console.log(products)
+    return total
+  }
+
   return (
-    <div>
-      <h1>Order Details</h1>
+    <section className="blocktext mt-5" id="orders" style={{ backgroundColor: "lightgrey", padding: "20px", border: "1px solid #696969", borderRadius: "8px" }}>
+      <h3>Order Details</h3>
       {order && (
         <div>
-          <p><strong>Order ID:</strong> {order.id}</p>
-          <p><strong>Date:</strong> {order.date}</p>
-          <p><strong>Expected Delivery Date:</strong> {order.expected_delivery_date}</p>
-          <p><strong>Customer ID:</strong> {order.customer_id}</p>
-
-          <h2>Products</h2>
+          <p><strong>Order ID:</strong> {order.id}
+          <br />
+          <strong>Date:</strong> {order.date}
+          <br />
+          <strong>Expected Delivery Date:</strong> {order.expected_delivery_date}
+          <br />
+          <strong>Customer ID:</strong> {order.customer_id}</p>
           <ul>
             {order.order_products.map((product, index) => (
-              <li key={index}>
-                <p><strong>Product Name:</strong> {product.product.name}</p>
-                <p><strong>Quantity:</strong> {product.quantity}</p>
-                <p><strong>Price:</strong> ${product.product.price.toFixed(2)}</p>
+              <li className="rounded" key={index} style={{ marginBottom: "1rem", border: "1px solid #696969", padding: "1rem" }}>
+                <h5><strong>Products</strong></h5>
+                <p><strong>Product Name:</strong> {product.product.name}
+                <br />
+                <strong>Quantity:</strong> {product.quantity}
+                <br />
+                <strong>Price:</strong> ${product.product.price.toFixed(2)}
+                <br />
+                <strong>Subtotal:</strong> $ {(product.product.price * product.quantity).toFixed(2)}
+                </p>
               </li>
             ))}
+            <div>
+            <h5 className="mb-5"><strong>Order Total:</strong> $ {calculateOrderTotal(order.order_products).toFixed(2)}</h5>
+          </div>
           </ul>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

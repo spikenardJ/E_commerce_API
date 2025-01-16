@@ -1,3 +1,5 @@
+// Individual Product Details page displaying details of product
+
 import axios from "axios"
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
@@ -44,9 +46,6 @@ const ProductsDetails = () => {
     
         {products ?(
             <>
-            {/* <h2>{products.product_name}</h2>
-            <p>${products.price}</p>
-            <p> Availiable in Stock: {products.stock}</p> */}
             <div>
                 <h3 className="mt-3 mb-3">Product Details</h3>
                 <h5>{products.name}</h5>
@@ -56,12 +55,11 @@ const ProductsDetails = () => {
 
                 <br /><br />
 
-                {/* <p>In Stock: {products.product.stock}</p> */}
                 <div className="text-center">
                     <Link to="/products">
                         <Button className="m-2" variant="secondary" size="sm">Back to Products</Button>
                     </Link>
-                    {/* <Button variant="danger" size="sm" onClick={handleDelete}>Delete {customer.name}</Button> */}
+                
                 </div>
 
                 <div>

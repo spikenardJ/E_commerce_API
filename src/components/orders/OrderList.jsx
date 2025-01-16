@@ -1,3 +1,5 @@
+// Order List to display all orders from all customers including order details order subtotals and order total
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
@@ -23,9 +25,9 @@ const OrderList = () => {
   }
 
   return (
-    <section className="blocktext mt-3" id="orders" style={{ backgroundColor: "lightgrey", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+    <section className="blocktext mt-5" id="orders" style={{ backgroundColor: "lightgrey", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
       {orders.length >= 1 && orders.map(order => (
-        <div className="mt-5 p-3" key={order.id} style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "2px solid #ddd", borderRadius: "8px" }}>
+        <div className="mt-5 p-3" key={order.id} style={{ backgroundColor: "#f8f9fa", padding: "20px", border: "1px solid #696969", borderRadius: "8px" }}>
           <h3><strong>Order ID: </strong>{order.id}</h3>
           <p><strong>Customer ID: </strong>{order.customer_id}
           <br />
@@ -34,7 +36,7 @@ const OrderList = () => {
           <strong>Expected Delivery Date: </strong>{order.expected_delivery_date}
           </p>
           {order.order_products.map((item, index) => (
-            <div key={index} style={{ marginBottom: "1rem", border: "1px solid #ddd", padding: "1rem" }}>
+            <div className="rounded" key={index} style={{ marginBottom: "1rem", border: "1px solid #696969", padding: "1rem" }}>
               <h5><strong>Product in Order:</strong></h5>
               <p><strong>Product Name:</strong> {item.product.name}
               <br />
@@ -49,7 +51,7 @@ const OrderList = () => {
             </div>
           ))}
           <div>
-            <h5 className="mb-5"><strong>Order Total:</strong> {calculateOrderTotal(order.order_products).toFixed(2)}</h5>
+            <h5 className="mb-5"><strong>Order Total:</strong> ${calculateOrderTotal(order.order_products).toFixed(2)}</h5>
           </div>
         </div>
       ))}

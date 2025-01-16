@@ -1,3 +1,5 @@
+// Customer Form with add customer and update info
+
 import { Component } from "react";
 import axios from "axios";
 import { func, number } from "prop-types";

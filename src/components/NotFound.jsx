@@ -1,3 +1,5 @@
+// A gentle Not Found page to redirect user to home page
+
 import React from "react";
 import { Container, Row, Col, Image, Button, NavLink } from 'react-bootstrap';
 import errorImage from "../images/error.webp";

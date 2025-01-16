@@ -1,3 +1,5 @@
+// List of all custmers with links to edit customer details, display customer details, and delete customer entirely
+
 import { func } from "prop-types";
 import { Component } from "react";
 import axios from "axios";

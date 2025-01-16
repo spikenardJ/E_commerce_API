@@ -1,3 +1,5 @@
+// Home Page using Bootstrap Cards, Buttons, and Images to enhance user experience
+
 import React from "react";
 import { Button, Card, CardGroup, Image } from "react-bootstrap";
 import { HashLink, NavHashLink } from "react-router-hash-link";

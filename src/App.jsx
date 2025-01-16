@@ -34,7 +34,7 @@ function App() {
         <Route path="/add-order" element={<OrderForm />} />
         <Route path="/edit-order/:id" element={<OrderForm />} />
         <Route path="/orders" element={<OrderList />} />
-        <Route path="/order/:orderId" element={<OrderDetails />} />
+        <Route path="/orders/:orderId" element={<OrderDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

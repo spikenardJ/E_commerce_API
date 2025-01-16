@@ -1,3 +1,5 @@
+// Product landing page to enhance user experience including buttons to navigate and prompt user to make a purchase
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Row, Col, Container, Image, Button } from "react-bootstrap";
@@ -32,7 +34,7 @@ function ProductLanding() {
                         width="100%"
                         border="2px solid #ddd"
                     />
-                    <p><small>Macbook Laptop: $1500.00</small></p>
+                    <p><small>Macbook Laptop: $2300.00</small></p>
                     <div className="text-center">
                         <Button href="/edit-order/1" variant="dark">Shop Laptops</Button>
                     </div>

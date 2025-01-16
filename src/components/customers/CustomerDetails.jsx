@@ -1,3 +1,5 @@
+// Read Customer Details based on unique identifier
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
