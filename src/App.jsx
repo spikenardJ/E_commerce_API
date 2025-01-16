@@ -10,6 +10,7 @@ import ProductDetails from "./components/products/ProductDetails";
 import NavigationBar from "./components/NavigationBar";
 import OrderList from "./components/orders/OrderList";
 import OrderForm from "./components/orders/OrderForm";
+import OrderDetails from "./components/orders/OrderDetails";
 import NotFound from "./components/NotFound";
 import "./Style.css";
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -33,6 +34,7 @@ function App() {
         <Route path="/add-order" element={<OrderForm />} />
         <Route path="/edit-order/:id" element={<OrderForm />} />
         <Route path="/orders" element={<OrderList />} />
+        <Route path="/order/:orderId" element={<OrderDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
